@@ -16,12 +16,24 @@ class MacOSController: NSObject, iOS2Mac {
         super.init()
     }
     
-    func openAlert() {
+    func openAlert(message: String) {
         let alert = NSAlert()
-        alert.messageText = NSLocalizedString("Cocoa", comment: "")
-        alert.informativeText = NSLocalizedString("Welcome to Cocoa", comment:"")
+        alert.messageText = NSLocalizedString("from UIKit", comment: "")
+        alert.informativeText = NSLocalizedString(message, comment:"")
         alert.alertStyle = .informational
-        alert.addButton(withTitle: "OK")
-        _ = alert.runModal()
+        alert.addButton(withTitle: "Close")
+        alert.addButton(withTitle: "Open Alert of UIKit")
+        
+        switch alert.runModal() {
+        case .alertFirstButtonReturn:
+            break
+        case .alertSecondButtonReturn:
+            if let mac2iOS = self.iOSController {
+                mac2iOS.openAlert(message: "AppKitからこんにちは")
+            }
+            break
+        default:
+            break
+        }
     }
 }
