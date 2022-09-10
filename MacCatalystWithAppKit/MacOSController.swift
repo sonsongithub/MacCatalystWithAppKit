@@ -16,9 +16,9 @@ class MacOSController: NSObject, iOS2Mac {
         super.init()
     }
     
-    func openAlert(message: String) {
+    func openNSAlert(message: String) {
         let alert = NSAlert()
-        alert.messageText = NSLocalizedString("from UIKit", comment: "")
+        alert.messageText = NSLocalizedString("NSAlertだよ", comment: "")
         alert.informativeText = NSLocalizedString(message, comment:"")
         alert.alertStyle = .informational
         alert.addButton(withTitle: "Close")
@@ -29,7 +29,7 @@ class MacOSController: NSObject, iOS2Mac {
             break
         case .alertSecondButtonReturn:
             if let mac2iOS = self.iOSController {
-                mac2iOS.openAlert(message: "AppKitからこんにちは")
+                mac2iOS.openUIAlert(message: "AppKitからこんにちは")
             }
             break
         default:

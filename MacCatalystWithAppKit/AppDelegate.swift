@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, mac2iOS {
     
     var macOSController: iOS2Mac?
     
-    func openAlert(message: String) {
+    func openUIAlert(message: String) {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
         guard let window = windowScene.keyWindow else { return }
         if let viewController = window.rootViewController as? ViewController {
-            let alert = UIAlertController(title: "from AppKit", message: message, preferredStyle: .alert)
+            let alert = UIAlertController(title: "UIAlertだよ", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                 alert.dismiss(animated: true)
             }))

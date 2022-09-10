@@ -11,11 +11,11 @@ import Foundation
 public protocol iOS2Mac: NSObjectProtocol {
     init()
     var iOSController: mac2iOS? { get set }
-    func openAlert(message: String)
+    func openNSAlert(message: String)
 }
 
 @objc(mac2iOS)
 public protocol mac2iOS: NSObjectProtocol {
     func getHomeUUID() -> UUID
-    func openAlert(message: String)
+    func openUIAlert(message: String)
 }

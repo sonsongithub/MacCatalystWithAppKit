@@ -17,14 +17,8 @@ class ViewController: UIViewController {
 
     @IBAction func pushButton(sender: Any?) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            appDelegate.macOSController?.openAlert(message: "UIKitからこんにちは")
+            appDelegate.macOSController?.openNSAlert(message: "UIKitからこんにちは")
         }
-//        
-//        let alert = UIAlertController(title: "test", message: "from UIKit", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-//            alert.dismiss(animated: true)
-//        }))
-//        self.present(alert, animated: true)
     }
 }
 
